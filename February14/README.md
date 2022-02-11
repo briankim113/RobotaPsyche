@@ -26,3 +26,8 @@ A few difficulties that I faced in this project are the following:
 3. I tried to implement a way to allow the user (aka the mouse) to "drop" the food particles and make them appear on the screen. But this idea proved to be difficult, because I was not sure what to do when there are no particles left. Because I would "null" the food particle once eaten, there were NullPointerException errors that were raised. This can be solved relatively easily by checking the array length/content and not call any food functions if the array is "empty". But if the exceptions can be handled, how about the fish's behavior? Without any attractors, do they just swim away from each other until there is a user input? Also, because there is no fixed number of particles, that meant that I needed to create some kind of dynamic array that expands and shrinks depending on how many particles the user has dropped and will drop and how many fish have eaten, etc. For these reasons, this idea is left as an idea for now.
 
 ## Video and Screenshots
+### Video
+[Link](https://youtu.be/oQBnWr3QloI)
+### Screenshots
+![My Image](/Screenshot1.png)
+![My Image](/Screenshot2.png)
