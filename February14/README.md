@@ -29,5 +29,5 @@ A few difficulties that I faced in this project are the following:
 ### Video
 [Link](https://youtu.be/oQBnWr3QloI)
 ### Screenshots
-![My Image](/Screenshot1.png)
-![My Image](/Screenshot2.png)
+![](/February14/Screenshot1.png)
+![](/February14/Screenshot2.png)
