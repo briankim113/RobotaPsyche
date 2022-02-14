@@ -170,7 +170,7 @@ class Fish {
 
     if (location.y > height) {
       location.y = height;
-      velocity.y = 0;
+      velocity.y *= -1;
     } else if (location.y < 0) {
       location.y = 0;
       velocity.y *= -1;
