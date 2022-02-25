@@ -23,3 +23,8 @@ Make progress on your midterm project either by elaborating on your February14 e
 2. I am thinking about having an event be triggered when fish are all dead and there are no more fish. A simple idea would be to reset everything after user clicks some button that appears, but I think it could be even more interesting to let the user "become God". What happens if in the second round, users can place all the fish and food in the desired locations, and also be able to determine the hunger time limit? I don't know how feasible having such two different modes will be, but I could also just stick with one over the other for the midterm itself.
 
 ## Video and Screenshots
+### Video
+[Link](https://youtu.be/fCavEVCc_5E)
+### Screenshots
+![](/February28/Screenshot1.png)
+![](/February28/Screenshot2.png)
