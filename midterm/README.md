@@ -18,6 +18,7 @@
     1. Had to differentiate declaration and instantiation of foods and fishes ArrayLists
     2. Declaration done outside on the top for global variables
     3. Instantiation inside a separate function that is called in setup() and mouseClicked() so information is "rewritten" with the = new ArrayList<>()
+7. Deleted checkEdges()
 
 ## Difficulties
 ## Discoveries
