@@ -1,19 +1,26 @@
+/*
+short description of the project, class, and date
+Name: Brian Kim
+Course: IM-UH 3313 Robota Psyche
+Midterm: Ecology of Pond
+Date: March 9, 2022
+*/
+
 //use ArrayList for dynamic size - no need for NullPointerException handling
 //fishes and foods declared here - global variables
 ArrayList<Fish> fishes;
 ArrayList<Food> foods;
 
 //called at the beginning of a new session - first in the setup() and then in mouseClicked()
-//fishes and foods instantiated in here - new per session so the leftovers don't transfer to the next try
-
+//fishes and foods instantiated in here - new () called per session so the leftovers don't transfer to the next try
 void addFoodAndFish(){  
   fishes = new ArrayList<Fish>();
-  for (int i=0; i<10; i++) {
+  for (int i=0; i<10; i++) { //10 fish at the start
     fishes.add(new Fish());
   }
   
   foods = new ArrayList<Food>();
-  for (int i=0; i<2; i++) {
+  for (int i=0; i<2; i++) { //2 food at the start
     foods.add(new Food(random(width), random(height)));
   }
 }
@@ -26,12 +33,12 @@ void setup() {
   addFoodAndFish();
 }
 
+//built-in function that responds to mouseClick event
 void mouseClicked() {
   // drop more food on mouse position
   if (fishes.size() > 0) {
     foods.add(new Food(mouseX, mouseY));
   }
-  
   // restart
   else {
     addFoodAndFish();
@@ -39,7 +46,7 @@ void mouseClicked() {
 }
 
 void draw() {
-  background(128, 206, 175); //ocean water
+  background(128, 206, 175); //pond water color
 
   //text settings
   fill(0);
@@ -47,6 +54,7 @@ void draw() {
 
   // no fish on the screen
   if (fishes.size() == 0){
+    // restart screen - looks "static" because there is nothing else on display
     textAlign(CENTER);
     text("No More Fish...", width/2, height/4);
     text("Try again? Click the mouse", width/2, height*3/4);
@@ -65,6 +73,7 @@ void draw() {
         }
       }
 
+      //for every food
       for (int k=0; k<foods.size(); k++) {
         //food attracts fish
         PVector foodForce = foods.get(k).attract(fishes.get(i));
@@ -90,7 +99,7 @@ void draw() {
       foods.get(k).display();
     }
     
-    //text should be on top of the fish and food
+    //text should be on top of the fish and food so they come after the display()
     textAlign(LEFT);
     text("Click to drop food for the fish", width/8, height/12);
     textAlign(RIGHT);
@@ -98,6 +107,7 @@ void draw() {
   }
 }
 
+//food class
 class Food {
   float radius = 4;
   float gravity = 1;
@@ -129,11 +139,12 @@ class Food {
 }
 
 
+//fish class
 class Fish {
   float mass = 10; //increased as fish eats food, decreased over time, consider this as radius
   float gravity = 0.01;
 
-  //int timer; //switched hunger logic from timer to mass, but still kept in the code because it was neatly done
+  //int timer; //switched hunger logic from timer to mass, but still kept in the code for reference
   PVector location;
   PVector velocity;
   PVector acceleration;
@@ -225,11 +236,11 @@ class Fish {
     for (int i=0; i<numShapes; i++) {
       // color
       if (mass <= 7) {
-        fill(246, 70, 91, shapeA[i]);
+        fill(246, 70, 91, shapeA[i]); //hungry fish are shown as red
       } else {
-        fill(255, shapeA[i]);
+        fill(255, shapeA[i]); //otherwise they are just white
       }
-      shapeA[i] -= 255/numShapes; //for gradation
+      shapeA[i] -= 255/numShapes; //for gradation for water trail
 
       // shape
       pushMatrix();
@@ -237,11 +248,10 @@ class Fish {
       rotate(velocity.heading());
 
       /*
-      from Processing docs:
-       A triangle is a plane created by connecting three points.
-       The first two arguments specify the first point, the middle two arguments specify the second point, and the last two arguments specify the third point.
-       */
-      triangle(0, mass, 0, -mass, mass, 0); // eating food increases size
+      from Processing docs: A triangle is a plane created by connecting three points.
+      The first two arguments specify the first point, the middle two arguments specify the second point, and the last two arguments specify the third point.
+     */
+      triangle(0, mass, 0, -mass, mass, 0); // eating food increases fish's size (aka triangle)
 
       popMatrix();
     }
@@ -252,23 +262,5 @@ class Fish {
     pop();
 
     mass -= 0.003; //decrease mass ever so slightly every time this function is called per frame
-  }
-
-  void checkEdges() {
-    if (location.x > width) {
-      location.x = width;
-      velocity.x *= -1;
-    } else if (location.x < 0) {
-      location.x = 0;
-      velocity.x *= -1;
-    }
-
-    if (location.y > height) {
-      location.y = height;
-      velocity.y *= -1;
-    } else if (location.y < 0) {
-      location.y = 0;
-      velocity.y *= -1;
-    }
   }
 }
