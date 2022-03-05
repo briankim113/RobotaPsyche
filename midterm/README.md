@@ -23,3 +23,8 @@
 ## Difficulties
 ## Discoveries
 ## Resources
+## Video and Screenshots
+[Video Link](https://youtu.be/KkOpw0Tz7oQ)
+![](/midterm/Screenshot1.png)
+![](/midterm/Screenshot2.png)
+![](/midterm/Screenshot3.png)
