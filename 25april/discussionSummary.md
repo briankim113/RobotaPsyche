@@ -1,3 +1,5 @@
+# Discussion Summary
+
 150-250 words: summarize the discussion you lead, including the reading. You should work with your partner on this. Only one of you needs to have the file.
 
 Our reading consisted of three articles that were on free will and robots. We explored the articles, one by one, and posed two questions from each.
